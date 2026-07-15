@@ -3,3 +3,4 @@ venv
 logs
 */__pyache__/*
 *.pyc
+.vscode/
