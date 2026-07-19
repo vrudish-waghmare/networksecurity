@@ -17,6 +17,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier
 import mlflow
+import mlflow.sklearn
 
 class ModelTrainer:
     def __init__(self, data_transformation_artifact: DataTransformationArtifact,
@@ -38,8 +39,7 @@ class ModelTrainer:
             mlflow.log_metric("precision",precision_score)
             mlflow.log_metric("recall_score",recall_score)
             mlflow.sklearn.log_model(best_model,"model")
-            # Model registry does not work with file store
-            mlflow.sklearn.log_model(best_model, "model")
+          
 
 
     def train_model(self, X_train, y_train, X_test, y_test):
@@ -94,7 +94,7 @@ class ModelTrainer:
         # track the experiments with mlflow
         self.track_mlflow(best_model, classification_train_metric)
 
-        # Testing predictions
+        # Testing predictions    
         y_test_pred = best_model.predict(X_test)
         classification_test_metric = get_classification_score(y_true=y_test, y_pred=y_test_pred)
 
