@@ -10,4 +10,5 @@ dagshub
 uvicorn
 fastapi
 python-multipart
+aws-cli
 # -e .  
