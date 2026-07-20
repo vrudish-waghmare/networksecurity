@@ -1,14 +1,16 @@
-pandas 
-numpy
+pandas>=2.2
+numpy>=1.26
 python-dotenv
 certifi
-pymongo[srv]==3.12
-scikit-learn
+pymongo[srv]>=4.6
+scikit-learn>=1.5
 pyyaml
-mlflow
+mlflow>=2.15
 dagshub
 uvicorn
 fastapi
 python-multipart
-aws-cli
-# -e .  
+
+
+
+#-e .
